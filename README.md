@@ -1,9 +1,9 @@
-##Language Detection Using NLP & Machine Learning
+Language Detection Using NLP & Machine Learning
 Python 3.6 scikit-learnn NLP
 
-#Language Detection using the European Parliament Proceedings Parallel Corpus. European Parliament Proceedings Parallel Corpus is a text dataset used for evaluating language detection engines. The 1.5GB corpus includes 21 languages spoken in EU. This project aims to build a machine learning model trained on this dataset to predict new unseen data. The Language Detection falls basically into Text Classification part.
+Language Detection using the European Parliament Proceedings Parallel Corpus. European Parliament Proceedings Parallel Corpus is a text dataset used for evaluating language detection engines. The 1.5GB corpus includes 21 languages spoken in EU. This project aims to build a machine learning model trained on this dataset to predict new unseen data. The Language Detection falls basically into Text Classification part.
 
-##List of all the languages whose detection is supported:
+List of all the languages whose detection is supported:
 'bg': Bulgarian
 'cs': Czech
 'da': Danish
@@ -26,7 +26,7 @@ Python 3.6 scikit-learnn NLP
 'sl': Slovenian
 'sv': Swedish
 
-##Table of content :
+Table of content :
 1. Importing all the essiantial libraries.
 2. Loading the data.
 3. Data Preprocessing.
@@ -37,7 +37,7 @@ Python 3.6 scikit-learnn NLP
 8. Prediction and Model evaluation
 9. Creating a pickle file
 
-#1. Importing all the essential libraries
+1. Importing all the essential libraries
 import string 
 import re
 import codecs
@@ -56,7 +56,7 @@ from sklearn.model_selection import train_test_split
 from sklearn import metrics
 import itertools
 
-#2. Loading the dataset
+2. Loading the dataset
 Using the pandas library we were able to read the dataset of the respective languages
 
 Reading the data for English dataset.
@@ -69,7 +69,7 @@ Reading the dataset for Spanish dataset.
 spanish_df = pd.read_csv("europarl-v7.es-en.es", "utf-8", header=None, names=["Spanish"])
 And many other languages can be read similarly
 
-#3. Data Text Pre-Processing.
+3. Data Text Pre-Processing.
 Before giving our model to our machine learning model we need to pre process the data. The main aim of data pre processing is remove the unwanted characters, punctuations and many other noisy data the list of the noisy data is
 
 for char in string.punctuation:
@@ -96,13 +96,13 @@ Normalization : The words can be be written into different formats (USA, U.S.A, 
 
 Stemming & Lemmatization : This is the most important step to perform. In this we are cutting the words either we are bringing the word to its original /root form or we are cutting the word into it form and int from.
 
-#4. Transforming the dataset into single dataset.
+4. Transforming the dataset into single dataset.
 We have now pre processed all the language dataset and now we need to just combine all the individual dataset into a single Data frame for our convinience.
 
-#5. Dividing the dataset.
+5. Dividing the dataset.
 After we have combined all the individual dataset we need to split our dataset Independent(x) and Dependent(y) variable(target variable) for prediction.
 
-#6. Converting the words into vectors.
+6. Converting the words into vectors.
 There are various methods for converting the words into vectors. Model cannot understand raw form we need to convert into something called as 0's and 1's. The most commonly used vectorization techniques are as follows :
 
 Bag-of-Words (Count Vectorizer) : Bag of words converts text into set of vectors containing the count of word occurrences in the document.
@@ -111,11 +111,11 @@ TF-IDF : TF-IDF creates vectors from the text which contains information on the 
 
 Word2Vec : Word2Vec creates vectors that are numerical representation of word features, features such as the context of individual words. The purpose and usefulness of Word2Vec is to group the vectors of similar words together into vector space. That is it detects similarities mathematically.
 
-#7. Creating a pipeline.
+7. Creating a pipeline.
 Using the vectorizer and fitting the model into the pipeline.
 
-#8. Prediction and model evaluation.
+8. Prediction and model evaluation.
 In this project I've used Logistic Regression it has performed well with all this data and was able to acheive 92% accuracy.
 
-#9. Creating a pickle file.
+9. Creating a pickle file.
 Creating a pickle file using .pickle file and can be used for the deployment of the model over web.
